@@ -1,6 +1,5 @@
 import { db } from "@/lib/db";
 import Link from "next/link";
-import ReviewDisplay from "./components/ReviewDisplay";
 
 export default async function Home({ searchParams }) {
   console.log("searchParams", searchParams);
@@ -25,13 +24,12 @@ export default async function Home({ searchParams }) {
           Sort desc
         </Link>
       </div>
-      {games.map(function (game) {
+      {games.map((game) => {
         return (
           <div key={game.id} className="gameOutput">
             <div>
-              ID: {game.id} - {game.name} - {game.creator} - {game.rating}/10 -{" "}
+              ID: {game.id} - {game.name} - {game.publisher} - {game.date} -{" "}
             </div>
-            <ReviewDisplay gameID={game.id} />
           </div>
         );
       })}
